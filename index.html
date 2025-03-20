@@ -11,18 +11,16 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: green;
         }
         .login-container {
             background: white;
             padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            width: 300px;
             text-align: center;
         }
         input {
-            display: block;
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -30,46 +28,40 @@
             border-radius: 5px;
         }
         button {
-            width: 100%;
-            padding: 10px;
-            background: blue;
+            background-color: #28a745;
             color: white;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
         button:hover {
-            background: darkblue;
-        }
-        #message {
-            margin-top: 10px;
-            font-weight: bold;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
-        <p id="message"></p>
+        <p id="message" style="color: red;"></p>
     </div>
+
     <script>
         function login() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var message = document.getElementById('message');
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var message = document.getElementById("message");
             
-            if (username === "" || password === "") {
-                message.textContent = "Please fill in both fields";
-                message.style.color = "red";
-            } else {
-                message.textContent = "Login successful";
+            if (username === "admin" && password === "password123") {
                 message.style.color = "green";
+                message.innerText = "Login successful!";
+            } else {
+                message.innerText = "Invalid username or password";
             }
-        } 
+        }
     </script>
 </body>
 </html>
